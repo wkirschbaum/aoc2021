@@ -1,13 +1,14 @@
-defmodule Day1Test do
+defmodule Aoc2021.StatsTest do
   use ExUnit.Case
-  doctest Day1
+
+  alias Aoc2021.Stats
 
   test "measure empty list" do
-    assert Day1.increases([]) == 0
+    assert Stats.increases([]) == 0
   end
 
   test "measure single element list" do
-    assert Day1.increases([1]) == 0
+    assert Stats.increases([1]) == 0
   end
 
   test "measure even list" do
@@ -24,7 +25,7 @@ defmodule Day1Test do
       263
     ]
 
-    assert Day1.increases(measurements) == 7
+    assert Stats.increases(measurements) == 7
   end
 
   test "measure odd list" do
@@ -40,6 +41,6 @@ defmodule Day1Test do
       263
     ]
 
-    assert Day1.increases(measurements) == 6
+    assert Stats.increases(measurements) == 6
   end
 end

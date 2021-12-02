@@ -1,7 +1,4 @@
-defmodule Day1 do
-  @moduledoc """
-  Documentation for `Day1`.
-  """
+defmodule Aoc2021.Stats do
   def increases([]), do: 0
   def increases([_]), do: 0
 
