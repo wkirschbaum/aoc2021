@@ -18,7 +18,7 @@ defmodule Mix.Tasks.Results do
     puts("day2.1", fn ->
       inputs("input-2")
       |> Aoc2021.Navigation.navigate()
-      |> Aoc2021.Position.product()
+      |> Aoc2021.Submarine.product()
     end)
   end
 
