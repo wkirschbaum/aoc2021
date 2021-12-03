@@ -26,7 +26,7 @@ defmodule Aoc2021.NavigationTest do
 
       result =
         Navigation.navigate(directions)
-        |> Submarine.product()
+        |> Submarine.position_product()
 
       assert result == 900
     end
