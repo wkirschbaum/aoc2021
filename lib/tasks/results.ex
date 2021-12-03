@@ -20,6 +20,16 @@ defmodule Mix.Tasks.Results do
       |> Aoc2021.Navigation.navigate()
       |> Aoc2021.Submarine.position_product()
     end)
+
+    puts("day3.1", fn ->
+      inputs("input-3")
+      |> Aoc2021.Diagnostics.power_consumption()
+    end)
+
+    puts("day3.2", fn ->
+      inputs("input-3")
+      |> Aoc2021.Diagnostics.life_support_rating()
+    end)
   end
 
   defp inputs(name) do
