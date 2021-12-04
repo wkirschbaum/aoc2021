@@ -31,11 +31,7 @@ defmodule Aoc2021.Diagnostics do
 
   defp filter_inputs(inputs, func, pos) do
     bit = Enum.at(most_common_bits(inputs, func), pos)
-
-    left =
-      Enum.filter(inputs, fn input ->
-        Enum.at(String.to_charlist(input), pos) == bit
-      end)
+    left = Enum.filter(inputs, &(Enum.at(String.to_charlist(&1), pos) == bit))
 
     filter_inputs(left, func, pos + 1)
   end
