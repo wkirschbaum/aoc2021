@@ -51,28 +51,21 @@ defmodule Aoc2021.Bingo do
   end
 
   defp win_vertical?(rows) do
-    Enum.any?(0..4, fn col ->
-      Enum.count(rows, fn row -> is_nil(Enum.at(row, col)) end) == 5
-    end)
+    Enum.any?(0..4, &Enum.all?(rows, fn row -> is_nil(Enum.at(row, &1)) end))
   end
 
   defp win_horizontal?([]), do: false
 
   defp win_horizontal?([row | rows]) do
-    if Enum.count(row, &is_nil/1) == 5, do: true, else: win_horizontal?(rows)
+    if Enum.all?(row, &is_nil/1), do: true, else: win_horizontal?(rows)
   end
 
   defp read_boards(lines) do
-    for start <- 1..(length(lines) - 1)//5 do
-      read_board(lines, start..(start + 4))
-    end
+    for start <- 1..(length(lines) - 1)//5, do: read_board(lines, start..(start + 4))
   end
 
   defp read_board(lines, range) do
-    for row <- range do
-      Enum.at(lines, row)
-      |> String.split(" ", trim: true)
-    end
+    for row <- range, do: Enum.at(lines, row) |> String.split(" ", trim: true)
   end
 
   defp read_inputs([inputs | _]), do: String.split(inputs, ",", trim: true)
