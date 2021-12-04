@@ -5,36 +5,46 @@ defmodule Mix.Tasks.Results do
   def run(_) do
     puts("day1.1", fn ->
       inputs("input-1")
+      |> String.split("\n", trim: true)
+      |> IO.inspect()
       |> Enum.map(&String.to_integer/1)
       |> Aoc2021.Sonar.increases(window: 3)
     end)
 
     puts("day1.2", fn ->
       inputs("input-1")
+      |> String.split("\n", trim: true)
       |> Enum.map(&String.to_integer/1)
       |> Aoc2021.Sonar.increases(window: 3)
     end)
 
     puts("day2.1", fn ->
       inputs("input-2")
+      |> String.split("\n", trim: true)
       |> Aoc2021.Navigation.navigate()
       |> Aoc2021.Submarine.position_product()
     end)
 
     puts("day3.1", fn ->
       inputs("input-3")
+      |> String.split("\n", trim: true)
       |> Aoc2021.Diagnostics.power_consumption()
     end)
 
     puts("day3.2", fn ->
       inputs("input-3")
+      |> String.split("\n", trim: true)
       |> Aoc2021.Diagnostics.life_support()
+    end)
+
+    puts("day4.1", fn ->
+      inputs("input-4")
+      |> Aoc2021.Bingo.winning_board()
     end)
   end
 
   defp inputs(name) do
-    File.stream!("inputs/#{name}.txt")
-    |> Enum.map(&String.trim/1)
+    File.read!("inputs/#{name}.txt")
   end
 
   defp puts(text, func) do
