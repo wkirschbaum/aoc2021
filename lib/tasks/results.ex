@@ -41,6 +41,11 @@ defmodule Mix.Tasks.Results do
       inputs("input-4")
       |> Aoc2021.Bingo.winning_board()
     end)
+
+    puts("day4.2", fn ->
+      inputs("input-4")
+      |> Aoc2021.Bingo.loosing_board()
+    end)
   end
 
   defp inputs(name) do

@@ -1,12 +1,15 @@
 defmodule Aoc2021.Bingo do
   def winning_board(input) do
     lines = String.split(input, "\n", trim: true)
-    play(read_boards(lines), read_inputs(lines))
+    play_winning(read_boards(lines), read_inputs(lines))
   end
 
-  defp play(_boards, []), do: 0
+  def loosing_board(input) do
+    lines = String.split(input, "\n", trim: true)
+    play_loosing(read_boards(lines), read_inputs(lines))
+  end
 
-  defp play(boards, [number | numbers]) do
+  defp play_winning(boards, [number | numbers]) do
     boards = mark_numbers(boards, number)
 
     for board <- boards do
@@ -14,7 +17,19 @@ defmodule Aoc2021.Bingo do
         score(board) * String.to_integer(number)
       end
     end
-    |> Enum.find(&is_integer/1) || play(boards, numbers)
+    |> Enum.find(&is_integer/1) || play_winning(boards, numbers)
+  end
+
+  defp play_loosing(boards, [number | numbers]) do
+    boards =
+      Enum.reject(mark_numbers(boards, number), fn board ->
+        win_horizontal?(board) or win_vertical?(board)
+      end)
+
+    case boards do
+      [_board] -> play_winning(boards, numbers)
+      _ -> play_loosing(boards, numbers)
+    end
   end
 
   defp mark_numbers(boards, number) do

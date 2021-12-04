@@ -25,5 +25,7 @@ defmodule Aoc2021.BingoTest do
     """
 
     assert Aoc2021.Bingo.winning_board(input) == 4512
+
+    assert Aoc2021.Bingo.loosing_board(input) == 1924
   end
 end
