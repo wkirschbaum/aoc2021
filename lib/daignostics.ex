@@ -1,6 +1,4 @@
 defmodule Aoc2021.Diagnostics do
-  use Bitwise
-
   def power_consumption(inputs) do
     gamma(inputs) * epsilon(inputs)
   end
