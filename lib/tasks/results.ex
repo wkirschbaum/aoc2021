@@ -28,7 +28,7 @@ defmodule Mix.Tasks.Results do
 
     puts("day3.2", fn ->
       inputs("input-3")
-      |> Aoc2021.Diagnostics.life_support_rating()
+      |> Aoc2021.Diagnostics.life_support()
     end)
   end
 

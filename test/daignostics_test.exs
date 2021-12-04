@@ -18,27 +18,27 @@ defmodule Aoc2021.DiagnosticsTest do
     "01010"
   ]
 
-  test "gamma_rate" do
-    assert Diagnostics.gamma_rate(@input) == 22
+  test "gamma" do
+    assert Diagnostics.gamma(@input) == 22
   end
 
-  test "epsilon_rate" do
-    assert Diagnostics.epsilon_rate(@input) == 9
+  test "epsilon" do
+    assert Diagnostics.epsilon(@input) == 9
   end
 
   test "power_consumption" do
     assert Diagnostics.power_consumption(@input) == 198
   end
 
-  test "oxygen_generator_rating" do
-    assert Diagnostics.oxygen_generator_rating(@input) == 23
+  test "o2" do
+    assert Diagnostics.o2(@input) == 23
   end
 
-  test "co2_scrubber_rating" do
-    assert Diagnostics.co2_scrubber_rating(@input) == 10
+  test "co2" do
+    assert Diagnostics.co2(@input) == 10
   end
 
-  test "life_support_rating" do
-    assert Diagnostics.life_support_rating(@input) == 230
+  test "life_support" do
+    assert Diagnostics.life_support(@input) == 230
   end
 end
