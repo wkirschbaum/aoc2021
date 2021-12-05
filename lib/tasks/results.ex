@@ -6,7 +6,6 @@ defmodule Mix.Tasks.Results do
     puts("day1.1", fn ->
       inputs("input-1")
       |> String.split("\n", trim: true)
-      |> IO.inspect()
       |> Enum.map(&String.to_integer/1)
       |> Aoc2021.Sonar.increases(window: 3)
     end)

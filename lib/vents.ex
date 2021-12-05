@@ -4,13 +4,8 @@ defmodule Aoc2021.Vents do
     |> String.split("\n", trim: true)
     |> Enum.map(&String.split(&1, "->", trim: true))
     |> Enum.flat_map(&expand/1)
-    |> count()
-  end
-
-  defp count(coords) do
-    Enum.frequencies(coords)
-    |> Enum.filter(fn {_key, val} -> val > 1 end)
-    |> Enum.count()
+    |> Enum.frequencies()
+    |> Enum.count(fn {_key, val} -> val > 1 end)
   end
 
   defp expand([a, b]) do
@@ -26,8 +21,6 @@ defmodule Aoc2021.Vents do
   end
 
   defp to_coord(val) do
-    val
-    |> String.split(",")
-    |> Enum.map(fn val -> String.trim(val) |> String.to_integer() end)
+    Enum.map(String.split(val, ","), &(String.trim(&1) |> String.to_integer()))
   end
 end
