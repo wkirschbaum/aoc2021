@@ -46,6 +46,11 @@ defmodule Mix.Tasks.Results do
       inputs("input-4")
       |> Aoc2021.Bingo.loosing_board()
     end)
+
+    puts("day5.1", fn ->
+      inputs("input-5")
+      |> Aoc2021.Vents.overlaps()
+    end)
   end
 
   defp inputs(name) do
