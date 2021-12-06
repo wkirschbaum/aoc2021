@@ -46,9 +46,14 @@ defmodule Mix.Tasks.Results do
       |> Aoc2021.Bingo.loosing_board()
     end)
 
-    puts("day5.1", fn ->
+    puts("day5.2", fn ->
       inputs("input-5")
       |> Aoc2021.Vents.overlaps()
+    end)
+
+    puts("day6.1", fn ->
+      inputs("input-6")
+      |> Aoc2021.LaternFish.growth()
     end)
   end
 
