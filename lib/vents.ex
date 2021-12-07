@@ -18,8 +18,7 @@ defmodule Aoc2021.Vents do
     cond do
       x1 == x2 -> for y <- y1..y2, do: {x1, y}
       y1 == y2 -> for x <- x1..x2, do: {x, y1}
-      abs(y1 - y2) == abs(x1 - x2) -> Enum.zip(x1..x2, y1..y2)
-      :otherwise -> []
+      :otherwise -> Enum.zip(x1..x2, y1..y2)
     end
   end
 end
