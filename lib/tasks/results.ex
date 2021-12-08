@@ -56,14 +56,19 @@ defmodule Mix.Tasks.Results do
     #   |> Aoc2021.LaternFish.growth()
     # end)
 
-    puts("day7.1", fn ->
-      inputs("input-7")
-      |> Aoc2021.Day7.part_one()
-    end)
+    # puts("day7.1", fn ->
+    #   inputs("input-7")
+    #   |> Aoc2021.Day7.part_one()
+    # end)
 
-    puts("day7.2", fn ->
-      inputs("input-7")
-      |> Aoc2021.Day7.part_two()
+    # puts("day7.2", fn ->
+    #   inputs("input-7")
+    #   |> Aoc2021.Day7.part_two()
+    # end)
+
+    puts("day8.1", fn ->
+      inputs("input-8")
+      |> Aoc2021.Day8.part_one()
     end)
   end
 

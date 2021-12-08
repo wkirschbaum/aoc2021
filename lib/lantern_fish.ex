@@ -9,6 +9,10 @@ defmodule Aoc2021.LaternFish do
     for(count <- 0..8, do: init[count] || 0)
     |> List.to_tuple()
     |> populate(0)
+
+    Tuple.append()
+
+    Enum.slide([], 2, 1)
   end
 
   defp populate(fish, days) when days >= 256, do: Tuple.sum(fish)
